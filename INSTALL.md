@@ -16,6 +16,7 @@ Ajouter des alias de commande :
         # Ajouter à la fin :
         #
         #	alias ll='ls -lAh --time-style=long-iso'
+		#	alias sudo='sudo '							# cf https://askubuntu.com/questions/22037/aliases-not-available-when-using-sudo
 
 Empecher le login SSH avec root :
 
@@ -43,7 +44,7 @@ Installation des pré-requis :
 	sudo apt-get install ca-certificates
 
 
-Installation docker :
+# Installation docker :
 
 	sudo apt-get install apt-transport-https software-properties-common
 	curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
@@ -52,13 +53,13 @@ Installation docker :
 	sudo apt-get install docker-compose
 
 
-Création d'un administrateur docker :
+## Création d'un administrateur docker :
 
     sudo adduser DOCKERADMIN
     sudo usermod -aG docker DOCKERADMIN
 
 
-# Controle du service Docker :
+## Controle du service Docker :
 
 	sudo systemctl start docker			# Démarrer le service Docker
 	sudo systemctl stop docker			# Stopper le service Docker
@@ -67,6 +68,10 @@ Création d'un administrateur docker :
 	sudo systemctl enable docker		# Démarrage automatique du service Docker
 
 
+## Acceder au shell d'un container :
+
+	docker exec -ti <container> /bin/bash
+	
 
 # Gestion du réseau :
 
@@ -79,6 +84,15 @@ Création du réseau d'entrée/sortie du serveur :
 Lancer une BusyBox "bb1" dans le réseau "server_io" :
 
 	docker run -it --rm --network=server_io --name=bb1 busybox
+
+
+	
+# Installation de nginx :
+
+Test :
+
+	docker run --name some-nginx -p 80:80 -v /var/www/NOM_DU_SITE:/usr/share/nginx/html:ro -d nginx
+	
 
 
 
