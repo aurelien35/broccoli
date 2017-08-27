@@ -4,7 +4,7 @@ services:
 
   web:
     image: nginx
-    container_name: nginx-web
+    container_name: nginx-server
     restart: unless-stopped
     ports:
       - "80:80"
@@ -15,6 +15,7 @@ services:
       - ./volumes/configuration/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./volumes/configuration/sites:/etc/nginx/sites:ro
       - ./volumes/data/html:/usr/share/nginx/html:ro
-      # - /var/www/radiopochard:/usr/share/nginx/html:ro
+      # TODO : supprimer ça :
+      - /var/radiopochard:/var/radiopochard:ro
       # TODO : path to sites     		- /usr/share/sites:/usr/share/sites:ro
       # TODO : path to certificates		- /toto/tata/cert:/cert:ro

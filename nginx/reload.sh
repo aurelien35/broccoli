@@ -1,3 +1,3 @@
 #! /bin/bash
 
-docker exec -it nginx-web nginx -s reload
+docker exec -it nginx-server nginx -s reload
