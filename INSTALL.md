@@ -80,6 +80,23 @@ Lancer une BusyBox "bb1" dans le réseau "server_io" :
 
     docker run -it --rm --network=server_io --name=bb1 busybox
 
+	
+	
+# Gestion nginx
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 
 
