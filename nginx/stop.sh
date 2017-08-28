@@ -1,3 +1,4 @@
 #! /bin/bash
 
-docker-compose down nginx-server
+docker-compose stop && docker-compose rm
+
