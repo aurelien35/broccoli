@@ -16,6 +16,7 @@ services:
       - ./volumes/configuration/sites:/etc/nginx/sites:ro
       - ./volumes/data/html:/usr/share/nginx/html:ro
       - ./volumes/data/certbot:/var/certbot:rw
+      - /etc/letsencrypt/live:/etc/nginx/cert:ro
       # TODO : supprimer ça :
       - /var/radiopochard:/var/radiopochard:ro
       # TODO : path to sites     		- /usr/share/sites:/usr/share/sites:ro
