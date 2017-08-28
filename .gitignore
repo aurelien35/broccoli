@@ -1,1 +1,2 @@
+nginx/volumes/configuration/sites/*.conf
 nginx/volumes/log

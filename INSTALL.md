@@ -103,7 +103,7 @@ Avec DOCKER_ADMIN :
 	
 Generation du certificat SSL :	
 
-    sudo certbot certonly --webroot -w /home/dockeruser/broccoli/nginx/volumes/data/certbot/www -d <NOM_DU_SITE> -d www.<NOM_DU_SITE>
+    sudo certbot certonly --webroot -w /home/dockeruser/broccoli/nginx/volumes/data/certbot/www -d <NOM_DU_SITE>.com -d www.<NOM_DU_SITE>.com
 	
 Pour créer une configuration nginx, copier une des configurations template dans :
 
@@ -115,6 +115,8 @@ Pour créer une configuration nginx, copier une des configurations template dans
 Créer le site, puis copier le template mattermost dans :
 
 	/var/broccoli/<NOM_DU_SITE>
+	
+	sudo cp -rf /home/<DOCKER_DAMIN>/broccoli/mattermost /var/broccoli/<NOM_DU_SITE>/
 	
 Créer le réseau correspondant :
 
@@ -129,6 +131,24 @@ Mettre à jour le template et lancer :
 
 
 
+############################################################################	
+	
+IMPORTANT NOTES:
+ - Congratulations! Your certificate and chain have been saved at
+   /etc/letsencrypt/live/radiopochard.com/fullchain.pem. Your cert
+   will expire on 2017-11-26. To obtain a new or tweaked version of
+   this certificate in the future, simply run certbot again. To
+   non-interactively renew *all* of your certificates, run "certbot
+   renew"
+ - If you lose your account credentials, you can recover through
+   e-mails sent to aurelien.albert@outlook.com.
+ - Your account credentials have been saved in your Certbot
+   configuration directory at /etc/letsencrypt. You should make a
+   secure backup of this folder now. This configuration directory will
+   also contain certificates and private keys obtained by Certbot so
+   making regular backups of this folder is ideal.
+ - If you like Certbot, please consider supporting our work by:
+	
 
 
 
