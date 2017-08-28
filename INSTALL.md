@@ -121,7 +121,7 @@ Créer le site, puis copier le template mattermost dans :
 	
 Créer le réseau correspondant :
 
-    docker network create --driver bridge <NOM_DU_SITE>-network
+    docker network create --driver bridge <NOM_DU_SITE>-mattermost-network
 	
 Mettre à jour le template et lancer :
 

@@ -10,7 +10,7 @@ services:
       - <NOM_DU_SITE>-mattermost-network
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /var/<NOM_DU_SITE>/mattermost/db/var/lib/postgresql/data:/var/lib/postgresql/data:rw
+      - /var/broccoli/<NOM_DU_SITE>/mattermost/db/var/lib/postgresql/data:/var/lib/postgresql/data:rw
     environment:
       - POSTGRES_USER=mmuser
       - POSTGRES_PASSWORD=mmuser_password
@@ -25,9 +25,9 @@ services:
       - <NOM_DU_SITE>-mattermost-network
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /var/<NOM_DU_SITE>/mattermost/app/mattermost/config:/mattermost/config:rw
-      - /var/<NOM_DU_SITE>/mattermost/app/mattermost/data:/mattermost/data:rw
-      - /var/<NOM_DU_SITE>/mattermost/app/mattermost/logs:/mattermost/logs:rw
+      - /var/broccoli/<NOM_DU_SITE>/mattermost/app/mattermost/config:/mattermost/config:rw
+      - /var/broccoli/<NOM_DU_SITE>/mattermost/app/mattermost/data:/mattermost/data:rw
+      - /var/broccoli/<NOM_DU_SITE>/mattermost/app/mattermost/logs:/mattermost/logs:rw
     environment:
       - DB_HOST=<NOM_DU_SITE>-mattermost-db
       - MM_USERNAME=mmuser
