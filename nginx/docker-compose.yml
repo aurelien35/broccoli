@@ -2,13 +2,15 @@ version: "2"
 
 services:
 
-  web:
-    image: nginx
+  nginx-server:
+    image:          nginx
     container_name: nginx-server
-    restart: unless-stopped
+    restart:        unless-stopped
     ports:
       - "80:80"
-      - "443:443"    
+      - "443:443"
+    networks:
+      - nginx-network
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ./volumes/log:/var/log/nginx:rw
@@ -16,8 +18,10 @@ services:
       - ./volumes/configuration/sites:/etc/nginx/sites:ro
       - ./volumes/data/html:/usr/share/nginx/html:ro
       - ./volumes/data/certbot:/var/certbot:rw
-      - /etc/letsencrypt/live:/etc/nginx/cert:ro
+      - /etc/letsencrypt:/etc/nginx/cert:ro
       # TODO : supprimer ça :
-      - /var/radiopochard:/var/radiopochard:ro
-      # TODO : path to sites     		- /usr/share/sites:/usr/share/sites:ro
-      # TODO : path to certificates		- /toto/tata/cert:/cert:ro
+#      - /var/radiopochard:/var/radiopochard:ro
+
+networks:
+    nginx-network:
+        external:   true

@@ -1,3 +1,7 @@
 #! /bin/bash
 
-docker-compose up -d
+pushd `dirname $0` > /dev/null
+
+    docker-compose up -d
+
+popd > /dev/null

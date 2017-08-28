@@ -1,4 +1,7 @@
 #! /bin/bash
 
-docker-compose stop && docker-compose rm -f
+pushd `dirname $0` > /dev/null
 
+    docker-compose stop && docker-compose rm -f
+
+popd > /dev/null
