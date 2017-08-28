@@ -4,13 +4,13 @@ services:
 
   db:
     image:          postgres:9.4
-    container_name: mattermost-db
+    container_name: <NOM_DU_SITE>-mattermost-db
     restart:        unless-stopped
     networks:
-      - mattermost-network
+      - <NOM_DU_SITE>-mattermost-network
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./volumes/db/var/lib/postgresql/data:/var/lib/postgresql/data:rw
+      - /var/<NOM_DU_SITE>/mattermost/db/var/lib/postgresql/data:/var/lib/postgresql/data:rw
     environment:
       - POSTGRES_USER=mmuser
       - POSTGRES_PASSWORD=mmuser_password
@@ -18,16 +18,18 @@ services:
 
   app:
     image:          mattermost/mattermost-prod-app:4.1.0
-    container_name: mattermost-app
+    container_name: <NOM_DU_SITE>-mattermost-app
     restart:        unless-stopped
     networks:
       - nginx-network
-      - mattermost-network
+      - <NOM_DU_SITE>-mattermost-network
     volumes:
       - /etc/localtime:/etc/localtime:ro
+      - /var/<NOM_DU_SITE>/mattermost/app/mattermost/config:/mattermost/config:rw
+      - /var/<NOM_DU_SITE>/mattermost/app/mattermost/data:/mattermost/data:rw
+      - /var/<NOM_DU_SITE>/mattermost/app/mattermost/logs:/mattermost/logs:rw
     environment:
-      # set name of db server
-      - DB_HOST=mattermost-db
+      - DB_HOST=<NOM_DU_SITE>-mattermost-db
       - MM_USERNAME=mmuser
       - MM_PASSWORD=mmuser_password
       - MM_DBNAME=mattermost
@@ -35,6 +37,6 @@ services:
 networks:
     nginx-network:
         external: true
-    mattermost-network:
+    <NOM_DU_SITE>-mattermost-network:
         external: true
     
