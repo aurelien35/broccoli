@@ -117,6 +117,7 @@ Créer le site, puis copier le template mattermost dans :
 	/var/broccoli/<NOM_DU_SITE>
 	
 	sudo cp -rf /home/<DOCKER_DAMIN>/broccoli/mattermost /var/broccoli/<NOM_DU_SITE>/
+	sudo nano /var/broccoli/<NOM_DU_SITE>/mattermost/docker-compose.yml
 	
 Créer le réseau correspondant :
 
@@ -124,9 +125,9 @@ Créer le réseau correspondant :
 	
 Mettre à jour le template et lancer :
 
-    start.sh       # démarre l'instance de mattermost
-    stop.sh        # stoppe ll'instance de mattermost
-    restart.sh     # re-démarre l'instance de mattermost
+    /var/broccoli/<NOM_DU_SITE>/start.sh       # démarre l'instance de mattermost
+    /var/broccoli/<NOM_DU_SITE>/stop.sh        # stoppe ll'instance de mattermost
+    /var/broccoli/<NOM_DU_SITE>/restart.sh     # re-démarre l'instance de mattermost
 
 
 
