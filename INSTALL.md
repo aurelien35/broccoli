@@ -36,7 +36,7 @@ Se déconnecter :
 
 Installation docker :
 
-    sudo apt-get install git curl wget ca-certificates apt-transport-https software-properties-common certbot
+    sudo apt-get install p7zip p7zip-full git curl wget ca-certificates apt-transport-https software-properties-common certbot
 
     curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
     echo "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee -a /etc/apt/sources.list.d/docker.list
