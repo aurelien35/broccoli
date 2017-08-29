@@ -46,8 +46,7 @@ pushd /var/broccoli > /dev/null
                 cp -a /var/broccoli/$i/mattermost/app/mattermost/data /var/broccoli.save/tmp/$i/mattermost
 				
                 echo "#      Sauvegarde de la base de donnees mattermost..."
-                # mkdir -p /var/broccoli.save/tmp/$i/mattermost/data
-                # cp -a /var/broccoli.save/tmp/$i/mattermost/data /var/broccoli.save/tmp/$i/mattermost/data
+				docker exec $i-mattermost-db pg_dump --host=127.0.0.1 --dbname=mattermost --username=mmuser --clean --create > /var/broccoli.save/tmp/$i/mattermost/database.dump
             fi
 			
             echo "#"
@@ -65,7 +64,7 @@ echo "#"
 echo "#"
 
 
-7zr a -r /var/broccoli.save/broccoli.save.$(date +"%Y-%m-%d.%Hh%M").7z /var/broccoli.save/tmp > /dev/null
+7zr a -r /var/broccoli.save/broccoli.save.$(date +"%Y-%m-%d.%Hh%M").7z /var/broccoli.save/tmp/* > /dev/null
 rm -rf /var/broccoli.save/tmp
 
 echo ""
