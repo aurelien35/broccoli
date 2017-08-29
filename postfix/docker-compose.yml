@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+
+  postfix-server:
+    image:          catatnight/postfix:latest
+    container_name: postfix-server
+    restart:        unless-stopped
+    ports:
+      - "25:25"
+      - "443:443"
+    networks:
+      - postfix-network
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+
+networks:
+    postfix-network:
+        external:   true
