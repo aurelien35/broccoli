@@ -61,19 +61,11 @@ Installation docker :
     docker exec -ti <NOM_DU_CONTENEUR> /bin/bash
 
 
-## Réseau :
-
-Voir ici : https://docs.docker.com/engine/userguide/networking/#the-default-bridge-network
-
-Création d'un réseau :
-
-    docker network create --driver bridge server_test
-
 ## BusyBox :
 
 Lancer une BusyBox "bb1" dans le réseau "server_test" :
 
-    docker run -it --rm --network=server_test --name=bb1 busybox
+    docker run -it --rm --network=server_test --name=bb1 busybox:1.27.2
 
 
 # Utilisation de broccoli :
@@ -94,6 +86,16 @@ Avec DOCKER_ADMIN :
     stop.sh        # stoppe ll'instance de nginx
     restart.sh     # re-démarre l'instance de nginx
     reload.sh      # recharge la configuration de nginx
+    shell.sh       # Ouvre un shell dans le container nginx
+
+	
+## postfix :
+
+    docker network create --driver bridge postfix-network
+
+    start.sh       # démarre l'instance de postfix
+    stop.sh        # stoppe ll'instance de postfix
+    restart.sh     # re-démarre l'instance de postfix
     shell.sh       # Ouvre un shell dans le container nginx
     
 

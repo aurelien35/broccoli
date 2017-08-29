@@ -8,11 +8,13 @@ services:
     restart:        unless-stopped
     ports:
       - "25:25"
-      - "443:443"
     networks:
       - postfix-network
     volumes:
       - /etc/localtime:/etc/localtime:ro
+    environment:
+      - maildomain=mail.radiopochard.com
+      - smtp_user=postfixuser:postfixuser_password
 
 networks:
     postfix-network:
