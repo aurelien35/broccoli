@@ -3,7 +3,7 @@ version: "2"
 services:
 
   nginx-server:
-    image:          nginx
+    image:          nginx:1.13.3
     container_name: nginx-server
     restart:        unless-stopped
     ports:
