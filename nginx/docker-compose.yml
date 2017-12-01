@@ -19,6 +19,8 @@ services:
       - ./volumes/log:/var/log/nginx:rw
       - ./volumes/configuration/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./volumes/configuration/sites:/etc/nginx/sites:ro
+      - ./volumes/certificates/self-signed-certificate.crt:/etc/nginx/self-signed-certificate.crt:ro
+      - ./volumes/certificates/self-signed-certificate.key:/etc/nginx/self-signed-certificate.key:ro
       - ./volumes/data/html:/usr/share/nginx/html:ro
       - ./volumes/data/certbot:/var/certbot:rw
 
