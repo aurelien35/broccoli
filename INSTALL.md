@@ -135,6 +135,8 @@ Mettre à jour le template et lancer :
 
 
 ############################################################################	
+Gestion CertBot :
+############################################################################	
 	
 IMPORTANT NOTES:
  - Congratulations! Your certificate and chain have been saved at
@@ -153,11 +155,30 @@ IMPORTANT NOTES:
  - If you like Certbot, please consider supporting our work by:
 	
 
+############################################################################	
+Gestion Certificat par défaut auto-signé :
+############################################################################	
+	
+Step 1: cd into my working directory
+	>> cd ~/Desktop/KeyGen
+	
+Step 2: Generate my key – a Triple-DES encrypted, 1024 bit RSA key
+	>> openssl genrsa -des3 -out server.key 1024
+	
+Step 3: Create a CSR (Certificate Signing Request)
+	>> openssl req -new -key server.key -out server.csr
+	
+Step 4: Remove passphrase from my key.
+Note: I want to remove it because Apache web server will ask me to enter it in every time I restart the server. If you want to keep the passphrase, skip this step.
+
+	>> cp server.key server.key.org
+	>> openssl rsa -in server.key.org -out server.key
+	
+Step 5: Create a self-signed certificate using the key I just created.
+Note: “days -365” will make the certificate valid for 1 year. You can easily make it valid for 10 years if you like. I’m sure you can figure out how to do that!
+
+	>> openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
 
 
-    
-    
-    
-    
-    
+
