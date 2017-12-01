@@ -1,0 +1,13 @@
+######
+# Port 4016 : service
+######
+
+server {
+    listen        4016;
+    server_name   www.hackware.radiopochard.com;
+	
+    location / {
+        root   /var/broccoli/hackware;
+        index  index.html index.htm;
+    }
+}

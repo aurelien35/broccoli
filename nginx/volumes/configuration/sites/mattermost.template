@@ -1,6 +1,9 @@
+######
+# Port 443 : traffic SSL
+######
 server {
     listen                    443 ssl http2;
-    server_name               <NOM_DU_SITE>;
+	server_name  			  www.<NOM_DU_SITE>.com;
 
     ssl                       on;
     ssl_certificate           /etc/nginx/cert/live/<NOM_DU_SITE>.com/cert.pem;
