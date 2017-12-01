@@ -9,9 +9,11 @@ services:
     ports:
       - "80:80"
       - "443:443"
+      - "4016:4016"
     networks:
       - nginx-network
     volumes:
+      - /var/broccoli:/var/broccoli:rw
       - /etc/localtime:/etc/localtime:ro
       - /etc/letsencrypt:/etc/nginx/cert:ro
       - ./volumes/log:/var/log/nginx:rw
