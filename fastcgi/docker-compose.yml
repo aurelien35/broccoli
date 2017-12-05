@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+
+  fastcgi:
+    build:          .
+    container_name: hackware-fastcgi
+    networks:
+      - nginx-network
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./volumes/cgi:/var/cgi:ro
+      
+networks:
+    nginx-network:
+        external: true
