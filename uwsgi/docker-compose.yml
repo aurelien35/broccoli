@@ -2,14 +2,17 @@ version: "2"
 
 services:
 
-  fastcgi:
-    build:          .
-    container_name: hackware-fastcgi
+  uwsgi:
+    build:
+        context:    .
+        dockerfile: uwsgi.dockerfile
+    container_name: uwsgi-server
+    restart:        unless-stopped
     networks:
       - nginx-network
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - ./volumes/cgi:/var/cgi:ro
+      - ./volumes:/var/uwsgi:rw
       
 networks:
     nginx-network:
