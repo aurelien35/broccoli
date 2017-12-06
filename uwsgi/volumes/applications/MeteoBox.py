@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import pprint
-import os
 import urllib.parse
 import urllib.request
 import json
