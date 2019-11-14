@@ -146,7 +146,7 @@ IMPORTANT NOTES:
    non-interactively renew *all* of your certificates, run "certbot
    renew"
  - If you lose your account credentials, you can recover through
-   e-mails sent to aurelien.albert@outlook.com.
+   e-mails sent to xxxxxxxx.xxxxxx@xxxxxxx.xxx.
  - Your account credentials have been saved in your Certbot
    configuration directory at /etc/letsencrypt. You should make a
    secure backup of this folder now. This configuration directory will
